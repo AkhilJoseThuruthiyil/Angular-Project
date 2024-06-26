@@ -8,7 +8,6 @@ import { from } from 'rxjs';
 })
 export class AuthService {
 
-
   constructor(
     private fireAuth: Auth, private router: Router
   ) { }
@@ -16,8 +15,8 @@ export class AuthService {
   onLogin(email: string, password: string) {
     const promise = signInWithEmailAndPassword(
       this.fireAuth, email, password
-    ).then(() => {
-      return {}
+    ).then((res) => {
+      return res
     });
     return from(promise);
   }
@@ -31,5 +30,17 @@ export class AuthService {
 
   returnAuth() {
     return this.fireAuth;
+  }
+
+  listenToUserAuthentication() {
+    onAuthStateChanged(this.fireAuth, (user: any) => {
+      if (user.accessToken) {
+      }
+    });
+  }
+
+  // Returns true when user is looged in and email is verified
+  get isLoggedIn(): boolean {
+    return localStorage.getItem('accessToken') ? true : false;
   }
 }

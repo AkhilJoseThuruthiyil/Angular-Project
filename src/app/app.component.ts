@@ -14,13 +14,7 @@ import { AuthService } from './shared/auth.service';
 export class AppComponent implements OnInit {
 
   constructor(private authenticateService: AuthService) {
-    const auth = this.authenticateService.returnAuth();
-    onAuthStateChanged(auth, (user: any) => {
-      if (user.accessToken) {
-        console.log(user);
-      } else {
-      }
-    });
+    this.authenticateService.listenToUserAuthentication();
   }
   title = 'angular-app';
 
