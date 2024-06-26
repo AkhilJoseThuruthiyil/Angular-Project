@@ -1,0 +1,49 @@
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100 padding-top-3">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
+          alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="registerForm">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div data-mdb-input-init class="form-outline">
+                <input type="text" id="form3Example1" class="form-control" formControlName="firstName"
+                  [ngClass]="{'is-invalid': firstName.touched && firstName.errors}" />
+                <label class="form-label" for="form3Example1">First name</label>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div data-mdb-input-init class="form-outline">
+                <input type="text" id="form3Example2" class="form-control" formControlName="lastName"
+                  [ngClass]="{'is-invalid': lastName.touched && lastName.errors}" />
+                <label class="form-label" for="form3Example2">Last name</label>
+              </div>
+            </div>
+          </div>
+
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="email" id="form3Example3" class="form-control" formControlName="emailID"
+              [ngClass]="{'is-invalid': emailID.touched && emailID.errors}" />
+            <label class="form-label" for="form3Example3">Email address</label>
+          </div>
+
+          <!-- Password input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="password" id="form3Example4" class="form-control" formControlName="password"
+              [ngClass]="{'is-invalid': password.touched && password.errors}" />
+            <label class="form-label" for="form3Example4">Password</label>
+          </div>
+
+          <button [ngClass]="{'disabled': registerForm.invalid}" type="submit" data-mdb-button-init data-mdb-ripple-init
+            class="btn btn-primary btn-block mb-4" (click)="onLoginFormSubmit()">
+            Sign up
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
