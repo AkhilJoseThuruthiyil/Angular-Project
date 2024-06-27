@@ -1,6 +1,6 @@
 export const environment = {
     firebaseConfig: {
-        apiKey: "AIzaSyAS9gO6w4L2oYQFfy0RyVnda8CAMjRXAz4",
+        apiKey: "",
         authDomain: "notepad-database-87d78.firebaseapp.com",
         projectId: "notepad-database-87d78",
         storageBucket: "notepad-database-87d78.appspot.com",

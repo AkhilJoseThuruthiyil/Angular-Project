@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
           localStorage.setItem('User_Name', response._tokenResponse.displayName);
           localStorage.setItem('email', response._tokenResponse.email);
           localStorage.setItem('refreshToken', response._tokenResponse.refreshToken);
-          this.router.navigateByUrl('home');
+          this.router.navigateByUrl('/home');
         }
       });
   }
