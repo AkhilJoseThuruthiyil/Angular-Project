@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { onAuthStateChanged } from '@angular/fire/auth';
 import { RouterOutlet } from '@angular/router';
-import { AuthService } from './shared/auth.service';
+import { AuthService } from './core/services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
