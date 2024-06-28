@@ -6,14 +6,15 @@ import { environment } from '../environments/environment';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideStore } from '@ngrx/store';
+import { provideState, provideStore } from '@ngrx/store';
+import { loginReducer } from './store/reducers/login.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [importProvidersFrom(HttpClientModule),
   provideRouter(routes),
   provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
   provideAuth(() => getAuth()),
-  provideStore(),
+  provideStore(), provideState({ name: 'login', reducer: loginReducer }),
   provideHttpClient(),
   provideClientHydration()]
 };
