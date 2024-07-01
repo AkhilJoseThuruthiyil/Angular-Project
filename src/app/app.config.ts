@@ -8,6 +8,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideState, provideStore } from '@ngrx/store';
 import { loginReducer } from './store/reducers/login.reducer';
+import { provideEffects } from '@ngrx/effects';
+import { LoginEffects } from './store/effects/login.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [importProvidersFrom(HttpClientModule),
@@ -15,6 +17,6 @@ export const appConfig: ApplicationConfig = {
   provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
   provideAuth(() => getAuth()),
   provideStore(), provideState({ name: 'login', reducer: loginReducer }),
-  provideHttpClient(),
+  provideHttpClient(), provideEffects(LoginEffects),
   provideClientHydration()]
 };

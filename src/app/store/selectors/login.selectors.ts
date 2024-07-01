@@ -2,6 +2,11 @@ import { createSelector } from '@ngrx/store';
 
 const selectLogin = (state: any) => state.login;
 
+export const selectLoginState = createSelector(
+    selectLogin,
+    (state) => state
+)
+
 export const selectAccessToken = createSelector(
     selectLogin,
     (state) => state.accessToken

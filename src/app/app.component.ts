@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AuthService } from './core/services/auth/auth.service';
 import { selectAccessToken } from './store/selectors/login.selectors';
 import { Store } from '@ngrx/store';
+import { Actions } from '@ngrx/effects';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +13,14 @@ import { Store } from '@ngrx/store';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private authenticateService: AuthService, private store: Store) {
-    this.authenticateService.listenToUserAuthentication();
+  constructor(private store: Store, private actions$: Actions) {
   }
   title = 'angular-app';
 
   ngOnInit(): void {
+    this.actions$.subscribe(res => {
+      console.log(res)
+    })
     this.store.select(selectAccessToken).subscribe(token =>
       console.log('ngRx store token', token));
   }
