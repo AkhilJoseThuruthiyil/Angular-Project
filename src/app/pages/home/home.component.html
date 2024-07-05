@@ -1,2 +1,16 @@
-<!-- FILEPATH: /c:/Users/akhil.jose03/source/frontend/angular-app/src/app/home/home.component.html -->
-<h1>Welcome to the Home Page!</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-9 col-xxl-10">
+
+        </div>
+        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)"
+            class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-3 col-xxl-2">
+            @for (movie of movies; track movie) {
+            <div class="example-box" cdkDrag>
+                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                {{movie}}
+            </div>
+            }
+        </div>
+    </div>
+</div>
